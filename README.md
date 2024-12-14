@@ -1,8 +1,46 @@
-# Web Development
-This repository contains all the files, notes and programs that I created while taking Angela Yu's ["Complete 2022 Web Development Bootcamp"](https://www.udemy.com/share/1013gG3@LtNx6kmn3N_Oz4x5ib4RAU9vXplzDYIww3EUM-CcbjH4D-1-HX29H7ovEfB9QgUh/) Course on Udemy. I have also used various other resources to learn web devlopment and have combined all my learnings into this repository.
+# Web-Development
+This repository is a collection of all my files I used/am using to learn both front end and back end web development.
 
-This repo focuses on both frontend and backend Web Development. 
+## Repository Structure
+### [001-HTML5]
+Added CSS Positions and Displays Files
 
-I have also added some of my code and notes to this repository along with notes that are provided by the courses that I have taken down the road. 
+### [002-CSS3]
+Added CSS Website
 
-This repo also contains questions and challenges that have helped me to strengthen my concepts.
+### [003-Bootstrap]
+Added final TinDog Website Files
+
+### [004-JavaScript]
+Website animations with jQuery
+
+### [005-Backend Development]
+Added Blog Website V1 starter files
+
+### [006-Databases]
+Added Blog Website Version 2 Starter Files
+
+### [007-Building_RESTful_APIs]
+DELETE a specific article and complete RESTful API Implementation
+
+### [008-Authentication_and_Security]
+Added my own app
+
+### [009-React.js]
+Completed the Complete 2022 Web Developer Bootcamp
+
+### Challenge 01 - Dice Game
+Added 'Challenge 01 - Dice Game' code files
+
+### Challenge 02 - Simon Game
+Fixed bugs in challenge 02
+
+### Challenge 03 - Blog Website_V1
+Added Simon Game starter files
+
+### Challenge 04 - Blog Website_V2
+Added Simon Game starter files
+
+### Challenge 05 - My Own App
+Adding my own app
+
