@@ -1,11 +1,11 @@
-time = 15;
+time = 9;
 
 if (time < 10) {
     greeting = "Good morning";
 } 
 
 else if (time < 20) {
-    greeting = "Good day";
+    greeting = "Good Afternoon";
 } 
 
 else {

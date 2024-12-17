@@ -10,6 +10,6 @@ var slice = s.slice(2, 11); // llo Wo
 console.log(slice);
 
 // Changing casing
-var n = "Aryan";
+var n = "Samarth";
 console.log(n.toUpperCase());
 console.log(n.toLowerCase());

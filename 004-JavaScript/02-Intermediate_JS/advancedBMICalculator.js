@@ -13,3 +13,6 @@ function bmiCalculator (weight, height) {
 
     return interpretation;
 }
+const weight = 62;  // in kg
+const height = 1.79;  // in meters
+console.log(bmiCalculator(weight, height));

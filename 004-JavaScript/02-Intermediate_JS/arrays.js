@@ -14,6 +14,6 @@ arr.push(3);
 arr.push(4);
 arr.push(5);
 console.log(arr);
-arr.pop();
-arr.pop();
+arr.pop();//removes last elemnet form the row
+arr.pop();// called twice to remove last two elements
 console.log(arr);

@@ -1,0 +1,143 @@
+JavaScript DOM Manipulation Notes
+
+What is the DOM?
+
+DOM stands for Document Object Model.
+It is a tree-like structure of an HTML document where:
+HTML elements become objects.
+You can use JavaScript to manipulate these objects (e.g., change text, style, or attributes).
+How to Select Elements in the DOM?
+
+1. Using getElementsByTagName()
+Selects elements based on their tag name (e.g., li, p, div).
+Returns an HTMLCollection (like an array).
+Example:
+
+console.log(document.getElementsByTagName("li")); // Logs all <li> elements.
+
+document.getElementsByTagName("li")[2].style.color = "purple"; 
+// Changes the 3rd <li> (index 2) text color to purple.
+
+console.log(document.getElementsByTagName("li").length); 
+// Logs the number of <li> elements.
+2. Using getElementsByClassName()
+Selects elements by their class name.
+Returns an HTMLCollection.
+Example:
+
+console.log(document.getElementsByClassName("item")); 
+// Logs all elements with the class "item".
+
+document.getElementsByClassName("item")[0].style.color = "blue"; 
+// Changes the first element with class "item" to blue.
+3. Using getElementById()
+Selects a single element using its ID.
+IDs are unique, so this method returns only one element.
+Example:
+
+console.log(document.getElementById("title")); 
+// Logs the element with ID "title".
+
+document.getElementById("title").innerHTML = "Good Bye!"; 
+// Changes the text inside the #title element to "Good Bye!".
+4. Using querySelector()
+Selects the first element that matches a CSS selector (e.g., .class, #id, tag).
+Example:
+
+console.log(document.querySelector(".item")); 
+// Logs the first element with the class "item".
+
+document.querySelector("#title").style.color = "red"; 
+// Changes the text color of #title to red.
+5. Using querySelectorAll()
+Selects all elements that match a CSS selector.
+Returns a NodeList (like an array).
+Example:
+
+console.log(document.querySelectorAll(".item")); 
+// Logs all elements with the class "item".
+How to Change Styles Dynamically?
+
+Use the style Property
+Modify inline CSS styles of an element.
+Example:
+
+document.querySelector("#title").style.color = "red"; 
+// Changes the text color of #title to red.
+
+document.querySelector("#title").style.fontSize = "5rem"; 
+// Changes the font size of #title to 5rem.
+
+document.getElementsByClassName("btn")[0].style.backgroundColor = "yellow"; 
+// Changes the background color of the first "btn" element to yellow.
+How to Work with Classes?
+
+Use the classList Property
+You can add, remove, or toggle CSS classes.
+Method	Action
+add("className")	Adds a class to the element.
+remove("className")	Removes a class from the element.
+toggle("className")	Adds/removes a class dynamically.
+Example:
+
+console.log(document.querySelector("#title").classList); 
+// Logs the list of classes on #title.
+
+document.querySelector("#title").classList.add('large'); 
+// Adds the 'large' class to #title.
+
+document.querySelector("#title").classList.remove('large'); 
+// Removes the 'large' class from #title.
+
+document.querySelector("#title").classList.toggle('large'); 
+// Toggles (adds/removes) the 'large' class.
+How to Modify Text Content?
+
+1. Using innerHTML
+Changes the HTML content of an element.
+Example:
+
+document.getElementById("title").innerHTML = "Good Bye!";
+// Replaces the HTML content of #title.
+2. Using textContent
+Changes the text (ignores HTML tags).
+Example:
+
+document.querySelector("#title").textContent = "Hello World!";
+// Changes the text of #title to "Hello World!".
+How to Work with Attributes?
+
+getAttribute() and setAttribute()
+getAttribute() gets the value of an attribute.
+setAttribute() sets (or changes) the value of an attribute.
+Example:
+
+console.log(document.querySelector("a").getAttribute("href")); 
+// Logs the current 'href' attribute of the <a> tag.
+
+document.querySelector("a").setAttribute("href", "https://www.bing.com/"); 
+// Changes the 'href' attribute to "https://www.bing.com".
+Quick Reference Table
+
+Method	Description
+getElementsByTagName("tag")	Selects all elements with a specific tag.
+getElementsByClassName("class")	Selects all elements with a specific class.
+getElementById("id")	Selects one element with a specific ID.
+querySelector("selector")	Selects the first matching element.
+querySelectorAll("selector")	Selects all matching elements.
+style.property	Changes the inline CSS style.
+classList.add("class")	Adds a class.
+classList.remove("class")	Removes a class.
+classList.toggle("class")	Toggles a class.
+innerHTML	Changes the HTML content.
+textContent	Changes the text content.
+getAttribute("attr")	Gets the value of an attribute.
+setAttribute("attr", "value")	Sets/updates the value of an attribute.
+Summary
+
+Use these methods to select elements:
+getElementsByTagName, getElementsByClassName, getElementById, querySelector, querySelectorAll.
+Modify styles using style.property.
+Add/remove classes dynamically with classList.
+Change text using innerHTML or textContent.
+Work with attributes using getAttribute() and setAttribute().

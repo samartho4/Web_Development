@@ -1,0 +1,90 @@
+1. What is jQuery?
+
+jQuery is a JavaScript library. A library is a collection of reusable code that makes it easier to perform common tasks.
+jQuery simplifies DOM manipulation (updating content, styles, and structure of HTML), event handling, and animations.
+Why Use jQuery?
+Less Code, More Power: Tasks that require many lines of JavaScript can be done in fewer lines with jQuery.
+Cross-Browser Compatibility: jQuery works in all browsers without issues.
+Extensive Features: It provides easy methods for animations, AJAX requests, and DOM traversal.
+2. How Does jQuery Work?
+
+To use jQuery, you need to include the jQuery library in your HTML file.
+
+Steps:
+Link to jQuery:
+You include jQuery using a CDN (Content Delivery Network). Place it in your <head> or before the closing </body> tag:
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+Write jQuery Code:
+jQuery uses the $ symbol as a shorthand for its functions.
+The syntax:
+$(selector).action();
+selector: Selects an HTML element (like h1, button, etc.).
+action(): Performs an action on the selected element (e.g., css(), hide()).
+3. Core Concepts of jQuery
+
+Let’s break down the theoretical side of the key concepts in jQuery.
+
+A. Selectors
+Selectors are used to select HTML elements to manipulate them.
+
+Selector Type	Example	Meaning
+Tag Selector	$("h1")	Selects all <h1> elements
+Class Selector	$(".className")	Selects all elements with a class
+ID Selector	$("#idName")	Selects the element with the ID
+Attribute Selector	$("[type='text']")	Selects elements with attributes
+Example:
+$("h1").css("color", "red"); // Selects h1 and changes its color to red
+B. DOM Manipulation
+DOM (Document Object Model) is the structure of your web page. jQuery helps you read and change the DOM.
+
+Method	Purpose	Example
+.text()	Change or get the text of an element	$("h1").text("Hello");
+.html()	Change inner HTML	$("h1").html("<b>Hello</b>");
+.attr()	Get or set an attribute	$("a").attr("href", "URL");
+.addClass()	Add a CSS class to an element	$("h1").addClass("big-title");
+.removeClass()	Remove a CSS class	$("h1").removeClass("title");
+Example: Add a new class and change an attribute.
+
+$("h1").addClass("newClass");
+$("a").attr("href", "https://google.com");
+C. Event Handling
+An event is an interaction with the web page (e.g., clicks, mouse movements, keypresses). jQuery makes it easy to handle events.
+
+Event	Description	Example
+click	When an element is clicked	$("button").click(function() {});
+keypress	When a key is pressed	$("input").keypress(function() {});
+mouseover	When the mouse hovers	$("h1").on("mouseover", function() {});
+Example: Change the color of the heading when a button is clicked.
+
+$("button").click(function() {
+    $("h1").css("color", "blue");
+});
+D. Animations
+jQuery provides built-in methods to add animations like fade, slide, and hide/show.
+
+Method   	 Description
+.hide()	     Hides an element
+.show()	     Shows an element
+.toggle()	 Toggles visibility of an element
+.fadeIn()	 Gradually shows an element
+.fadeOut()	 Gradually hides an element
+.slideUp()	 Slides element up (hide)
+.slideDown() Slides element down (show)
+.animate()	 Custom animation
+Example:
+
+$("button").click(function() {
+    $("h1").slideUp().slideDown().animate({opacity: 0.5});
+});
+4. Understanding the Flow
+
+Let’s understand how jQuery code works step-by-step:
+
+Wait for the page to load: jQuery ensures your code runs only after the page is ready.
+$(document).ready(function() {
+    // Your jQuery code here
+});
+Select an element: Use $("selector") to target any HTML element.
+Perform an action: Use actions like .css(), .text(), or .hide() to manipulate the element.
+Add interactivity: Use events like click or keypress to make the web page dynamic.
+Add animations: Use jQuery’s built-in animation methods to make elements interactive.

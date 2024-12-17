@@ -19,3 +19,5 @@ function isLeap(year) {
     /**************Don't change the code below****************/    
     
     }
+    const year =2019;
+    console.log("Year is" + year);

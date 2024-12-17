@@ -18,3 +18,11 @@ else {
 var x = 5;
 x++; // x = x + 1 OR x += 1
 console.log(x); 
+
+var num = 6;
+if (num % 2 == 0) {
+    console.log (num + " is an even number.");
+}
+else {
+    console.log(num + "is an odd number.")
+}

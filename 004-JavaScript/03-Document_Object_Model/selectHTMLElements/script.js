@@ -32,4 +32,4 @@ document.querySelector("#title").textContent = "Hello World!";
 
 // Manipulating HTML element attributes
 console.log(document.querySelector("a").getAttribute("href"));
-console.log(document.querySelector("a").setAttribute("href", "https://www.bing.com/"));
+console.log(document.querySelector("a").setAttribute("href", "https://www.google.com/"));

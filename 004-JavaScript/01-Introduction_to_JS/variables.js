@@ -1,7 +1,7 @@
-var myName = "Aryan";
-console.log(myName); // Aryan
-myName = "Aryan Khurana";
-console.log(myName); // Aryan Khurana
+var myName = "Samarth";
+console.log(myName); 
+myName = "Samarth Sharma";
+console.log(myName); 
 console.log("My name is " + myName);
 
 // Swapping two numbers
@@ -14,3 +14,4 @@ function test() {
     console.log("a is " + a);
     console.log("b is " + b);
 }
+

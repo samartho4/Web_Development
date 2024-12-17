@@ -9,3 +9,5 @@ function whosPaying(names) {
     
     /******Don't change the code below*******/    
 }
+let names = ["Angela", "Ben", "Jenny", "Michael", "Chloe"];
+console.log(whosPaying(names));  // Instead of just console.log(value);
