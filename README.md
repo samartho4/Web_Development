@@ -20,3 +20,7 @@ This repository is a collection of all my files I used/am using to learn both fr
 
 ### [009-React.js]
 
+## Author
+[Samarth Sharma](https://github.com/samartho4)
+
+
