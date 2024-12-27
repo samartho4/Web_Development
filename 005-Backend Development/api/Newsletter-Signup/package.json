@@ -1,7 +1,6 @@
 {
   "name": "newsletter-signup",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,9 +8,12 @@
   "author": "Aryan Khurana",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.20.0",
-    "express": "^4.18.1",
+    "axios": "^1.7.9",
+    "body-parser": "^1.20.3",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
     "postmark": "^4.0.5",
     "request": "^2.88.2"
-  }
+  },
+  "description": ""
 }

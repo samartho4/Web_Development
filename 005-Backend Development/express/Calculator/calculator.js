@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const app = express();
 // urlencoded is used when you want to get data from a form
 app.use(bodyParser.urlencoded({extended: true}));
-
+//t extracts the data from an HTTP POST request body and makes it available in req.body.
 const port = 3000;
 
 app.get('/', function(req, res) {

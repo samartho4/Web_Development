@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const postmark = require("postmark");
@@ -5,7 +6,7 @@ const postmark = require("postmark");
 const app = express();
 
 // Set up Postmark API client
-const postmarkClient = new postmark.ServerClient("d9b26387-3de1-4b75-8571-563ba8040fa7"); // Replace with your Postmark API key
+const postmarkClient = new postmark.ServerClient(process.env.POSTMARK_API_KEY); // Securely load API key
 
 // Serve static files from the "public" directory
 app.use(express.static("public"));
@@ -21,26 +22,30 @@ app.post("/", function (req, res) {
     const firstname = req.body.firstname;
     const lastname = req.body.lastname;
     const email = req.body.email;
-
-    // Email content
+// Basic validation
+if (!email || !email.includes("@")) {
+    return res.sendFile(__dirname + "/failure.html");
+}
+    // Email content with dynamic user data
     const message = {
-        From: "ssharma604@myseneca.ca", // Replace with your sender email from Postmark
+        From: "ssharma604@myseneca.ca",
         To: email,
-        Subject: "Welcome to Our Newsletter!",
-        TextBody: `Hi ${firstname} ${lastname},\n\nThank you for signing up for our newsletter!`
+        Subject: `Welcome, ${firstname}!`,
+        TextBody: `Hello ${firstname} ${lastname},\n\nThank you for signing up for our newsletter!`,
     };
 
     // Send email using Postmark
     postmarkClient.sendEmail(message, (error, result) => {
         if (error) {
-            console.error("Postmark error:", error);
+            console.error("Postmark Error Details:", error); // Logs the exact error
             res.sendFile(__dirname + "/failure.html");
         } else {
-            console.log("Postmark success:", result);
+            console.log("Postmark Success Response:", result);
             res.sendFile(__dirname + "/success.html");
         }
     });
 });
+
 
 
 // Route for handling failure button
@@ -49,15 +54,8 @@ app.post("/failure", function (req, res) {
 });
 
 // Start server
-app.listen(process.env.PORT || 3000, () => {
-    console.log("Server is running on port 3000.");
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}.`);
 });
-postmarkClient.sendEmail(message, (error, result) => {
-    if (error) {
-        console.error("Postmark error:", error); // Logs error details in the terminal
-        res.sendFile(__dirname + "/failure.html");
-    } else {
-        console.log("Postmark success:", result); // Logs success response in the terminal
-        res.sendFile(__dirname + "/success.html");
-    }
-});
+
