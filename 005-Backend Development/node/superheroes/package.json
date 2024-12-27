@@ -35,11 +35,13 @@
 		"comics"
 	],
 	"dependencies": {
+		"superheroes": "^4.0.0",
 		"unique-random-array": "^2.0.0"
 	},
 	"devDependencies": {
 		"ava": "^1.4.1",
 		"tsd": "^0.7.2",
+		"typescript": "^5.7.2",
 		"xo": "^0.24.0"
 	},
 	"tsd": {
