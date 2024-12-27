@@ -7,11 +7,11 @@ app.get('/', (req, res) => {
 })
 
 app.get('/contact', function(req, res) {
-    res.send('Contact me at aryan@gmail.com');
+    res.send('Contact me at samarth@gmail.com');
 })
 
 app.get('/about', function(req, res) {
-    res.send('I am Aryan Khurana and I love to code');
+    res.send('I am Samarth Sharma and I love to code');
 })
 
 app.get('/hobbies', function(req, res) {
@@ -21,3 +21,4 @@ app.get('/hobbies', function(req, res) {
 app.listen(port, function() {
   console.log(`Server started on port ${port}`);
 })
+
