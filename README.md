@@ -1,24 +1,6 @@
 # Web-Development
-This repository is a collection of all my files I used/am using to learn both front end and back end web development.
+This repository contains all the code, notes and other related files that I created while taking Angela Yu's "[The Complete 2024 Web Development Bootcamp][https://www.udemy.com/course/the-complete-web-development-bootcamp/?couponCode=ST12MT122624]" Course on Udemy. I have also used various other resources form my coursework [WEB222][https://web222.ca],[WEB322][https://webprogrammingtoolsandframeworks.sdds.ca] and [WEB422][https://webprogrammingforappsandservices.sdds.ca].
 
-## Repository Structure
-### [001-HTML5]
-
-### [002-CSS3]
-
-### [003-Bootstrap]
-
-### [004-JavaScript]
-
-### [005-Backend Development]
-
-### [006-Databases]
-
-### [007-Building_RESTful_APIs]
-
-### [008-Authentication_and_Security]
-
-### [009-React.js]
 
 ## Author
 [Samarth Sharma](https://github.com/samartho4)
