@@ -5,6 +5,10 @@ const mongoose = require("mongoose");
 const _ = require("lodash");
 
 const app = express();
+require('dotenv').config();
+const mongoURI = process.env.MONGO_URI;
+
+mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.set('view engine', 'ejs');
 
@@ -13,7 +17,6 @@ app.use(express.static("public"));
 
 // Connecting to the to do list database
 // mongoose.connect("mongodb://localhost:27017/todolistDB", { useNewUrlParser: true });
-mongoose.connect("mongodb+srv://AryanK1511:chocopiE@cluster0.zwntin3.mongodb.net/todolistDB", { useNewUrlParser: true });
 
 // Creating a schema
 const itemsSchema = new mongoose.Schema({
@@ -174,3 +177,4 @@ if (port == null || port == "") {
 app.listen(port, function() {
   console.log("Server has started successfully.");
 });
+
