@@ -50,95 +50,79 @@ const ListSchema = {
 // Creating a model
 const List = mongoose.model("List", ListSchema);
 
-// =================== HOME ROUTE ====================
-app.get("/", function(req, res) {
+// HOME ROUTE
+app.get("/", function (req, res) {
+  console.log("Home route accessed");
 
-  const day = date.getDate();
+  Item.find({}, function (err, foundItems) {
+    console.log("Items in the database:", foundItems);
 
-  // Searching for all the items in our database
-  Item.find({}, function(err, foundItems) {
-    // Only insert the default items if they don't exist already
     if (foundItems.length === 0) {
-      Item.insertMany(defaultItems, function(err) {
-        if (err) {
-          console.log(err);
-        }
-        else {
-          console.log("Successfully saved default items to collection.");
+      Item.insertMany(defaultItems, function (err) {
+        if (!err) {
+          console.log("Default items added to the database.");
         }
       });
-      res.redirect("/"); // Redirecting back to the home route
+      res.redirect("/");
+    } else {
+      res.render("list", { listTitle: "Today", newListItems: foundItems });
     }
-    else {
-      if (err) {
-        console.log(err);
-      }
-      else {
-        res.render("list", {listTitle: "Today", newListItems: foundItems});
-      }
-    }
-  })
+  });
 });
 
-// =================== POST ROUTE ====================
-app.post("/", function(req, res){
-
+// ADD NEW ITEM
+app.post("/", function (req, res) {
   const itemName = req.body.newItem;
   const listName = req.body.list;
 
+  console.log(`New item to add: "${itemName}" in list: "${listName}"`);
+
   const item = new Item({
-    name: itemName
+    name: itemName,
   });
 
   if (listName === "Today") {
     item.save();
+    console.log(`Item "${itemName}" saved to the "Today" list.`);
     res.redirect("/");
+  } else {
+    List.findOne({ name: listName }, function (err, foundList) {
+      foundList.items.push(item);
+      foundList.save();
+      console.log(`Item "${itemName}" added to list "${listName}".`);
+      res.redirect("/" + listName);
+    });
   }
-  else {
-    // Searching for an item in database which matches the list name
-    List.findOne({name: listName}, function(err, foundList) {
-      if (err) {
-        console.log(err);
-      }
-      else {
-        foundList.items.push(item);
-        foundList.save();
-        res.redirect("/" + listName);
-      }
-    })
-  }
-
 });
 
-// =================== DELETE ROUTE ====================
-app.post("/delete", function(req, res) {
+// DELETE ITEM
+app.post("/delete", function (req, res) {
   const checkedItemID = req.body.checkbox;
   const listName = req.body.listName;
 
+  console.log(`Request to delete item with ID: "${checkedItemID}" from list: "${listName}"`);
+
   if (listName === "Today") {
-    Item.findByIdAndRemove(checkedItemID, function(err) {
-      if (err) {
-        console.log(err);
-      }
-      else {
-        console.log("Successfully deleted checked item.");
+    Item.findByIdAndRemove(checkedItemID, function (err) {
+      if (!err) {
+        console.log(`Item with ID "${checkedItemID}" deleted from the "Today" list.`);
         res.redirect("/");
       }
     });
-  }
-  else {
-    // Using MongoDB pull to delete custom list items from database
-    List.findOneAndUpdate({listName}, {$pull: {items: {_id: checkedItemID}}}, function(err, foundList){
-      if (err) {
-        console.log(err);
+  } else {
+    List.findOneAndUpdate(
+      { name: listName },
+      { $pull: { items: { _id: checkedItemID } } },
+      function (err, foundList) {
+        if (!err) {
+          console.log(`Item with ID "${checkedItemID}" deleted from list "${listName}".`);
+          res.redirect("/" + listName);
+        }
       }
-      else {
-        console.log("Successfully deleted checked item.");
-        res.redirect("/" + listName);
-      }
-    });
+    );
   }
-})
+});
+
 
 // =================== CUSTOM LIST ROUTE ====================
 app.get("/:customListName", function(req, res) {
